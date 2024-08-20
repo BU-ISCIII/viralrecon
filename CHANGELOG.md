@@ -17,7 +17,7 @@ Thank you to everyone else that has contributed by reporting bugs, enhancements 
 
 ### Enhancements & fixes
 
-- [[#299](https://github.com/nf-core/viralrecon/issues/299)] - Add the freyja pipeline as a subworkflow
+- [[PR #375](https://github.com/nf-core/viralrecon/pull/375)] - Add the freyja pipeline as a subworkflow
 - [[PR #387](https://github.com/nf-core/viralrecon/pull/387)] - Software closes gracefully when encountering an error
 - [[PR #395](https://github.com/nf-core/viralrecon/pull/395)] - Remove minia from default assemblers because it is unreliable
 - [[PR #393](https://github.com/nf-core/viralrecon/pull/393)] - Changed primer set to params
@@ -26,21 +26,23 @@ Thank you to everyone else that has contributed by reporting bugs, enhancements 
 - [[PR #401](https://github.com/nf-core/viralrecon/pull/401)] - Added option to add a custom annotation
 - [[PR #417](https://github.com/nf-core/viralrecon/pull/417)] - Allow skipping of Freyja bootstrapping module & freyja module update
 - [[PR #434](https://github.com/nf-core/viralrecon/pull/434)] - Add blast result filtering through `min_contig_length` and `min_perc_contig_aligned`.
+- [[PR #435](https://github.com/nf-core/viralrecon/pull/435)] - Changed cutadapt to use nf-core modules, added `skip_noninternal_primers` param to allow users to process primers inside the pipeline.
 - [[PR #438](https://github.com/nf-core/viralrecon/pull/438)] - Update fastp container to 0.23.4
 
 ### Parameters
 
-| Old parameter | New parameter               |
-| ------------- | --------------------------- |
-|               | `--skip_freyja`             |
-|               | `--freyja_repeats`          |
-|               | `--freyja_db_name`          |
-|               | `--freyja_barcodes`         |
-|               | `--freyja_lineages`         |
-|               | `--skip_freyja_boot`        |
-|               | `--additional_annotation`   |
-|               | `--min_contig_length`       |
-|               | `--min_perc_contig_aligned` |
+| Old parameter | New parameter                |
+| ------------- | ---------------------------- |
+|               | `--skip_freyja`              |
+|               | `--freyja_repeats`           |
+|               | `--freyja_db_name`           |
+|               | `--freyja_barcodes`          |
+|               | `--freyja_lineages`          |
+|               | `--skip_freyja_boot`         |
+|               | `--additional_annotation`    |
+|               | `--min_contig_length`        |
+|               | `--min_perc_contig_aligned`  |
+|               | `--skip_noninternal_primers` |
 
 > **NB:** Parameter has been **updated** if both old and new parameter information is present.
 > **NB:** Parameter has been **added** if just the new parameter information is present.
@@ -52,6 +54,8 @@ Note, since the pipeline is now using Nextflow DSL2, each process will be run wi
 
 | Dependency | Old version | New version |
 | ---------- | ----------- | ----------- |
+| `cutadapt` |             | 4.6         |
+| `fastp`    | 0.23.2      | 0.23.4      |
 | `freyja`   |             | 1.5.0       |
 | `multiqc`  | 1.14        | 1.19        |
 | `fastp`    | 0.23.2      | 0.23.4      |
